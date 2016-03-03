@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { addBookmark, updateBookmark } from '../actions';
 
-let AddBookmark = ({ dispatch, isEditing, text, id, tags }) => {
+let BookmarkForm = ({ dispatch, isEditing, text, id, tags }) => {
   let input, tagsInput;
 
   let onAddBookmark = () => {
@@ -21,17 +21,17 @@ let AddBookmark = ({ dispatch, isEditing, text, id, tags }) => {
   let onClickHandler = isEditing ? onUpdateBookmark : onAddBookmark;
 
   return (
-    <div className="add">
-      <input className="add__input" ref={node => {
+    <div className="bookmark-form">
+      <input className="bookmark-form__input" ref={node => {
         input = node;
       }} defaultValue={text} placeholder="Bookmark URL" />
-      <span className="add__tags-container">Tags: <input className="add__tags-input" ref={node => {
+      <span className="bookmark-form__tags-container">Tags: <input className="bookmark-form__tags-input" ref={node => {
         tagsInput = node;
       }} defaultValue={tags} placeholder="Comma separated" /></span>
-      <button className="add__save" onClick={onClickHandler}>
+      <button className="bookmark-form__save" onClick={onClickHandler}>
         Save
       </button>
     </div>
   );
 };
-export default connect()(AddBookmark);
+export default connect()(BookmarkForm);

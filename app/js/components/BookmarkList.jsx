@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import AddBookmark from './AddBookmark.jsx';
+import BookmarkForm from './BookmarkForm.jsx';
 
 import { editBookmark, deleteBookmark } from '../actions';
 
@@ -25,7 +25,7 @@ const Bookmark = ({
       <li className="bookmark__action bookmark--delete"><a onClick={onDeleteClick}>delete</a></li>
     </ul>
   </li>;
-  let editingBookmark = <li className="bookmark"><AddBookmark isEditing={isEditing} text={text} id={id} tags={tags} /></li>;
+  let editingBookmark = <li className="bookmark"><BookmarkForm isEditing={isEditing} text={text} id={id} tags={tags} /></li>;
 
   return isEditing ? editingBookmark : renderedBookmark;
 };
